@@ -1,3 +1,5 @@
+# Calculates an approximation of pi using a mathematical formula.
+# More iterations make the result more accurate
 def pi(iterations):
     sum = 0
     for n in range(0, iterations):
