@@ -7,5 +7,5 @@ def factorial(num):
 
 number = int(input('Skriv ett tal: '))
 
-print('{}! = {}'.format(number, factorial(number)))
+print(f'{number}! = {factorial(number)}')
         

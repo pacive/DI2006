@@ -5,4 +5,4 @@ b = float(input('Längd katet 2: ').replace(',', '.'))
 
 c = math.sqrt(a**2 + b**2)
 
-print('Hypotenusan är {}'.format(c))
+print(f'Hypotenusan är {c}')

@@ -4,4 +4,4 @@ price = float(input('Hur mycket kostar godiset per styck? ').replace(',', '.'))
 number_of_candies = int(money / price)
 money_left = money % price
 
-print('Du kan köpa {} godisbitar, och har sedan {:.2f} kr kvar'.format(number_of_candies, money_left))
+print(f'Du kan köpa {number_of_candies} godisbitar, och har sedan {money_left:.2f} kr kvar')

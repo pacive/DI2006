@@ -18,4 +18,4 @@ while plan not in PRICE_FACTORS:
 
 final_price = price * PRICE_FACTORS[plan]
 
-print('Du behöver betala totalt {:.2f} kr'.format(final_price))
+print(f'Du behöver betala totalt {final_price:.2f} kr')

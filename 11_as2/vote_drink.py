@@ -21,5 +21,5 @@ while True:
     except:
         print('Ogiltigt värde')
 
-print('{} av personerna får rösta'.format(count_higher(ages, VOTING_AGE)))
-print('{} av personerna får dricka'.format(count_higher(ages, DRINKING_AGE)))
+print(f'{count_higher(ages, VOTING_AGE)} av personerna får rösta')
+print(f'{count_higher(ages, DRINKING_AGE)} av personerna får dricka')

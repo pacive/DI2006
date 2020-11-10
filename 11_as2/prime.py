@@ -21,6 +21,6 @@ def is_prime(num):
 number = int(input('Skriv ett tal: '))
 
 if is_prime(number):
-    print('{} är ett primtal'.format(number))
+    print(f'{number} är ett primtal')
 else:
-    print('{} är inte ett primtal'.format(number))
+    print(f'{number} är inte ett primtal')

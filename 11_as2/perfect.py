@@ -11,6 +11,6 @@ def is_perfect(num):
 number = int(input('Skriv ett tal: '))
 
 if is_perfect(number):
-    print('{} är ett perfekt tal'.format(number))
+    print(f'{number} är ett perfekt tal')
 else:
-    print('{} är inte ett perfekt tal'.format(number))
+    print(f'{number} är inte ett perfekt tal')
