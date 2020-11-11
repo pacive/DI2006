@@ -18,3 +18,19 @@ def list_primes_upto(max, initial = [2, 3, 5, 7]):
     
     return initial
 
+def largest_prime(limit):
+    if limit % 2 == 0:
+        limit -= 1
+
+    for i in range(limit, 2, -2):
+        root = int(math.sqrt(i))
+        is_prime = True
+        for n in range(3, root + 1, 2):
+            if i % n == 0:
+                is_prime = False
+                break
+
+        if is_prime:
+            return i
+
+print(largest_prime(9999991))
