@@ -1,32 +1,33 @@
 import math
 
-def list_primes_upto(max, initial = [2, 3, 5, 7]):
-    if max <= initial[-1]:
+def list_primes_upto(limit):
+    initial = [2, 3, 5, 7, 11, 13]
+    if limit <= initial[-1]:
         return initial
 
-    for i in range(initial[-1] + 2, max + 1, 2):
+    for i in range(initial[-1] + 2, limit + 1, 2):
         root = int(math.sqrt(i))
-        p = True
-        for prime in initial:
-            if prime > root:
+        prime = True
+        for prime_number in initial:
+            if prime_number > root:
                 break
-            if i % prime == 0:
-                p = False
+            if i % prime_number == 0:
+                prime = False
                 break
-        if p:
+        if prime:
             initial.append(i)
-    
+
     return initial
 
 def largest_prime(limit):
     if limit % 2 == 0:
         limit -= 1
 
-    for i in range(limit, 2, -2):
+    for i in range( limit, 2, -2 ):
         root = int(math.sqrt(i))
         is_prime = True
-        for n in range(3, root + 1, 2):
-            if i % n == 0:
+        for j in range(3, root + 1, 2):
+            if i % j == 0:
                 is_prime = False
                 break
 

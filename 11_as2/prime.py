@@ -14,7 +14,7 @@ def is_prime(num):
     for i in range(3, largest_factor, 2):
         if num % i == 0:
             return False
-    
+
     # If not divisible by any number, it must be a prime
     return True
 

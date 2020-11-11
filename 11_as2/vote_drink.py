@@ -1,7 +1,7 @@
 VOTING_AGE = 18
 DRINKING_AGE = 21
 
-# Function to count the number of elements in an array of numbers that are higher than 
+# Function to count the number of elements in an array of numbers that are higher than
 # or equal to lower_limit
 def count_higher(array, lower_limit):
     count = 0
@@ -18,8 +18,8 @@ while True:
         break
     try:
         ages.append(int(user_input))
-    except:
+    except ValueError:
         print('Ogiltigt värde')
 
-print(f'{count_higher(ages, VOTING_AGE)} av personerna får rösta')
-print(f'{count_higher(ages, DRINKING_AGE)} av personerna får dricka')
+print(f'Av sammanlagt {len(ages)} personer får {count_higher(ages, VOTING_AGE)} rösta\
+ och {count_higher(ages, DRINKING_AGE)} dricka')
