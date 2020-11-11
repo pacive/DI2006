@@ -32,5 +32,3 @@ def largest_prime(limit):
 
         if is_prime:
             return i
-
-print(largest_prime(9999991))
