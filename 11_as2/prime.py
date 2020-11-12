@@ -4,13 +4,15 @@ def is_prime(num):
     # Only need to test factors up to the sqare root of num
     largest_factor = int(math.sqrt(num)) + 1
 
-    # Check if num is 2 or else a multiple of 2, since it's the only even prime
+    # Check if num is 2 - the only even prime
     if num == 2:
         return True
-    elif num % 2 == 0:
+
+    # If num is even, it can't be a prime
+    if num % 2 == 0:
         return False
 
-    # Then only odd factors need to be checked
+    # If num is divisible by any other number, it's not prime
     for n in range(3, largest_factor, 2):
         if num % n == 0:
             return False

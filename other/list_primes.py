@@ -33,3 +33,5 @@ def largest_prime(limit):
 
         if is_prime:
             return i
+
+    return 2
