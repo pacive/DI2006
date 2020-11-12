@@ -23,7 +23,7 @@ def largest_prime(limit):
     if limit % 2 == 0:
         limit -= 1
 
-    for i in range( limit, 2, -2 ):
+    for i in range(limit, 2, -2):
         root = int(math.sqrt(i))
         is_prime = True
         for j in range(3, root + 1, 2):

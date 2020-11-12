@@ -1,8 +1,8 @@
 # Calculates the factorial of num
 def factorial(num):
     product = 1
-    for i in range(2, num + 1):
-        product *= i
+    for n in range(2, num + 1):
+        product *= n
     return product
 
 number = int(input('Skriv ett tal: '))

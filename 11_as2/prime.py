@@ -11,8 +11,8 @@ def is_prime(num):
         return False
 
     # Then only odd factors need to be checked
-    for i in range(3, largest_factor, 2):
-        if num % i == 0:
+    for n in range(3, largest_factor, 2):
+        if num % n == 0:
             return False
 
     # If not divisible by any number, it must be a prime

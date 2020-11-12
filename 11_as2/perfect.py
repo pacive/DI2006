@@ -1,9 +1,9 @@
 def is_perfect(num):
     sum_of_factors = 0
     # Calculate sum of numbers that divide num
-    for i in range(1, num):
-        if num % i == 0:
-            sum_of_factors += i
+    for n in range(1, num):
+        if num % n == 0:
+            sum_of_factors += n
 
     # Return whether the sum of the factors equals num
     return sum_of_factors == num
