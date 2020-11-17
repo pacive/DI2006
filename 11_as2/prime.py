@@ -10,10 +10,10 @@ def is_prime(num):
         return False
 
     # Only need to test factors up to the sqare root of num
-    largest_factor = int(math.sqrt(num)) + 1
+    largest_factor = int(math.sqrt(num))
 
     # If num is divisible by any other number, it's not prime
-    for n in range(3, largest_factor, 2):
+    for n in range(3, largest_factor + 1, 2):
         if num % n == 0:
             return False
 
