@@ -44,7 +44,7 @@ EXAMPLE_FOOD = {
 
 class FitnessProfile():
     '''Class for calculating various measurements related to fitness and diet'''
-    def __init__(self, gender, activity_level, *, height, weight, neck, waist, hip=None):
+    def __init__(self, gender, activity_level, height, weight, neck, waist, hip=None):
         self.gender = gender
         self.activity_level = activity_level
         self.height = height
@@ -118,7 +118,7 @@ class FitnessProfile():
         food_amount = self.recommended_intake(nutrient) / food_source[1]
         return (food_source[0], food_amount)
 
-profile = FitnessProfile(MALE, 2, height=180, weight=80, neck=39, waist=98)
+profile = FitnessProfile(gender=MALE, activity_level=2, height=180, weight=80, neck=39, waist=98)
 
 print(profile.fat_percent())
 print(profile.body_fat_category())
