@@ -11,10 +11,9 @@ Välj betalningssätt:
 4. 3 månaders avbetalning
 ''')
 
-plan = input()
 # Check that the selection is valid
-while plan not in PRICE_FACTORS:
-    plan = input('Ogiltigt val, försök igen: ')
+while (plan := input()) not in PRICE_FACTORS:
+    print('Ogiltigt val, försök igen: ', end='')
 
 final_price = price * PRICE_FACTORS[plan]
 

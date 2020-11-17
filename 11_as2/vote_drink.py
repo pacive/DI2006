@@ -12,10 +12,7 @@ def count_higher(array, lower_limit):
 
 ages = []
 
-while True:
-    user_input = input('Skriv in en ålder (eller q för att avsluta): ')
-    if user_input == 'q':
-        break
+while (user_input := input('Skriv in en ålder (eller q för att avsluta): ')) != 'q':
     try:
         ages.append(int(user_input))
     except ValueError:
