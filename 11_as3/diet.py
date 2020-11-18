@@ -118,7 +118,28 @@ class FitnessProfile():
         food_amount = self.recommended_intake(nutrient) / food_source[1]
         return (food_source[0], food_amount)
 
-profile = FitnessProfile(gender=MALE, activity_level=2, height=180, weight=80, neck=39, waist=98)
+def read_input(message, conversion=str, validation=(lambda _: True)):
+    while True:
+        value = input(message)
+        try:
+            converted = conversion(value)
+            if validation(converted):
+                return converted
+            print('Ogiltigt värde')
+        except ValueError:
+            print('Ogiltigt värde')
+
+gender = read_input('Ange ditt kön (M/F): ', lambda s: s.upper(), lambda s: s.upper() == MALE or s.upper() == FEMALE)
+activity_level = read_input('Ange din aktivitetsnivå (1-5): ', int, lambda n: n in range(1, 6))
+height = read_input('Längd: ', int)
+weight = read_input('Vikt: ', float)
+neck = read_input('Halsmått: ', int)
+waist = read_input('Midjemått: ', int)
+hip = None
+if gender == FEMALE:
+    hip = read_input('Höftmått: ', int)
+
+profile = FitnessProfile(gender, activity_level, height, weight, neck, waist, hip)
 
 print(profile.fat_percent())
 print(profile.body_fat_category())
