@@ -19,15 +19,15 @@ FITNESS = 'Fitness'
 ACCEPTABLE = 'Acceptable'
 OVERWEIGHT = 'Overweight'
 
-# Calories per gram of the different nutrients
-CALORIE_CONTENT = { PROTEIN: 4, CARBOHYDRATES: 4, FAT: 9 }
-
 # Factors for calculating maintenance calories, based on level of activity on
 # on a scale from 1-5
 ACTIVITY_LEVEL_FACTOR = { 1: 1.2, 2: 1.375, 3: 1.55, 4: 1.725, 5: 1.9 }
 
 # Recommended percentage of calories from different nutrients
 PERCENT_CALORIE_INTAKE = { PROTEIN: 0.4, CARBOHYDRATES: 0.3, FAT: 0.3 }
+
+# Calories per gram of the different nutrients
+CALORIE_CONTENT = { PROTEIN: 4, CARBOHYDRATES: 4, FAT: 9 }
 
 # Example food, with how many percent of the weight constitutes nutrients
 EXAMPLE_FOOD = {
@@ -44,17 +44,14 @@ EXAMPLE_FOOD = {
 
 class FitnessProfile():
     '''Class for calculating various measurements related to fitness and diet'''
-    def __init__(self, gender, activity_level, height, weight, neck, waist, hip=None):
-        self.gender = gender
-        self.activity_level = activity_level
-        self.height = height
-        self.weight = weight
-        self.neck = neck
-        self.waist = waist
-        if gender == FEMALE and hip is None:
-            raise ValueError('Hip measurement must be included')
-
-        self.hip = hip
+    def __init__(self):
+        self.gender = None
+        self.activity_level = None
+        self.height = None
+        self.weight = None
+        self.neck = None
+        self.waist = None
+        self.hip = None
 
     def fat_percent(self):
         '''Calculates the fat percent dependant on gender and different measurements'''
@@ -129,20 +126,18 @@ def read_input(message, conversion=str, validation=(lambda _: True)):
         except ValueError:
             print('Ogiltigt värde')
 
-gender = read_input('Your gender (M/F): ', lambda s: s.upper(), lambda s: s == MALE or s == FEMALE)
-activity_level = read_input('Your activity level (1-5): ', int, lambda n: n in range(1, 6))
+profile = FitnessProfile()
+
+profile.gender = read_input('Your gender (M/F): ', lambda s: s.upper(), lambda s: s == MALE or s == FEMALE)
+profile.activity_level = read_input('Your activity level (1-5): ', int, lambda n: n in range(1, 6))
 print('Input your measurements')
-height = read_input('Length: ', int)
-weight = read_input('Weight: ', float)
-neck = read_input('Neck: ', int)
-waist = read_input('Waist: ', int)
-hip = None
-if gender == FEMALE:
-    hip = read_input('Hip: ', int)
+profile.height = read_input('Length: ', int)
+profile.weight = read_input('Weight: ', float)
+profile.neck = read_input('Neck: ', int)
+profile.waist = read_input('Waist: ', int)
+if profile.gender == FEMALE:
+    profile.hip = read_input('Hip: ', int)
 
-profile = FitnessProfile(gender, activity_level, height, weight, neck, waist, hip)
-
-print(f'Your body fat percent is {profile.fat_percent():.0f}')
 print(f'This puts you in the category {profile.body_fat_category()}')
 print(f'Your basal metabolic rate is {profile.base_metabolic_rate():.0f}')
 print(f'Your maintenance calories is {profile.maintenance_calories():.0f}')
