@@ -138,6 +138,7 @@ profile.waist = read_input('Waist: ', int)
 if profile.gender == FEMALE:
     profile.hip = read_input('Hip: ', int)
 
+print(f'Your body fat percent is {profile.fat_percent():.0f}')
 print(f'This puts you in the category {profile.body_fat_category()}')
 print(f'Your basal metabolic rate is {profile.base_metabolic_rate():.0f}')
 print(f'Your maintenance calories is {profile.maintenance_calories():.0f}')
