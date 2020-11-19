@@ -115,6 +115,21 @@ class FitnessProfile():
         food_amount = self.recommended_intake(nutrient) / food_source[1]
         return (food_source[0], food_amount)
 
+def create_profile():
+    profile = FitnessProfile()
+
+    profile.gender = read_input('Your gender (M/F): ', lambda s: s.upper(), lambda s: s in (MALE, FEMALE))
+    profile.activity_level = read_input('Your activity level (1-5): ', int, lambda n: n in range(1, 6))
+    print('Input your measurements')
+    profile.height = read_input('Length: ', int)
+    profile.weight = read_input('Weight: ', float)
+    profile.neck = read_input('Neck: ', int)
+    profile.waist = read_input('Waist: ', int)
+    if profile.gender == FEMALE:
+        profile.hip = read_input('Hip: ', int)
+
+    return profile
+
 def read_input(message, conversion=str, validation=(lambda _: True)):
     while True:
         value = input(message)
@@ -126,17 +141,7 @@ def read_input(message, conversion=str, validation=(lambda _: True)):
         except ValueError:
             print('Ogiltigt värde')
 
-profile = FitnessProfile()
-
-profile.gender = read_input('Your gender (M/F): ', lambda s: s.upper(), lambda s: s in (MALE, FEMALE))
-profile.activity_level = read_input('Your activity level (1-5): ', int, lambda n: n in range(1, 6))
-print('Input your measurements')
-profile.height = read_input('Length: ', int)
-profile.weight = read_input('Weight: ', float)
-profile.neck = read_input('Neck: ', int)
-profile.waist = read_input('Waist: ', int)
-if profile.gender == FEMALE:
-    profile.hip = read_input('Hip: ', int)
+profile = create_profile()
 
 print(f'Your body fat percent is {profile.fat_percent():.0f}')
 print(f'This puts you in the category {profile.body_fat_category()}')
