@@ -44,14 +44,16 @@ EXAMPLE_FOOD = {
 
 class FitnessProfile():
     '''Class for calculating various measurements related to fitness and diet'''
-    def __init__(self):
-        self.gender = None
-        self.activity_level = None
-        self.height = None
-        self.weight = None
-        self.neck = None
-        self.waist = None
-        self.hip = None
+    def __init__(self, gender, activity_level, height, weight, neck, waist, hip=None):
+        self.gender = gender
+        self.activity_level = activity_level
+        self.height = height
+        self.weight = weight
+        self.neck = neck
+        self.waist = waist
+        if gender == FEMALE and hip is None:
+            raise ValueError('Hip measurement required')
+        self.hip = hip
 
     def fat_percent(self):
         '''Calculates the fat percent dependant on gender and different measurements'''
@@ -116,19 +118,18 @@ class FitnessProfile():
         return (food_source[0], food_amount)
 
 def create_profile():
-    profile = FitnessProfile()
-
-    profile.gender = read_input('Your gender (M/F): ', lambda s: s.upper(), lambda s: s in (MALE, FEMALE))
-    profile.activity_level = read_input('Your activity level (1-5): ', int, lambda n: n in range(1, 6))
+    gender = read_input('Your gender (M/F): ', lambda s: s.upper(), lambda s: s in (MALE, FEMALE))
+    activity_level = read_input('Your activity level (1-5): ', int, lambda n: n in range(1, 6))
     print('Input your measurements')
-    profile.height = read_input('Length: ', int)
-    profile.weight = read_input('Weight: ', float)
-    profile.neck = read_input('Neck: ', int)
-    profile.waist = read_input('Waist: ', int)
-    if profile.gender == FEMALE:
-        profile.hip = read_input('Hip: ', int)
+    height = read_input('Length: ', int)
+    weight = read_input('Weight: ', float)
+    neck = read_input('Neck: ', int)
+    waist = read_input('Waist: ', int)
+    hip = None
+    if gender == FEMALE:
+        hip = read_input('Hip: ', int)
 
-    return profile
+    return FitnessProfile(gender, activity_level, height, weight, neck, waist, hip)
 
 def read_input(message, conversion=str, validation=(lambda _: True)):
     while True:
