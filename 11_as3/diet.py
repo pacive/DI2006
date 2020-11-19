@@ -128,7 +128,7 @@ def read_input(message, conversion=str, validation=(lambda _: True)):
 
 profile = FitnessProfile()
 
-profile.gender = read_input('Your gender (M/F): ', lambda s: s.upper(), lambda s: s == MALE or s == FEMALE)
+profile.gender = read_input('Your gender (M/F): ', lambda s: s.upper(), lambda s: s in (MALE, FEMALE))
 profile.activity_level = read_input('Your activity level (1-5): ', int, lambda n: n in range(1, 6))
 print('Input your measurements')
 profile.height = read_input('Length: ', int)
