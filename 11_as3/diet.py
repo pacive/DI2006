@@ -32,7 +32,7 @@ CALORIE_CONTENT = { PROTEIN: 4, CARBOHYDRATES: 4, FAT: 9 }
 # Example food, with how many percent of the weight constitutes nutrients
 EXAMPLE_FOOD = {
     PROTEIN: [
-        ( 'Chicken breast', 0.21 )
+        ( 'Chicken breast', 0.31 )
     ],
     CARBOHYDRATES: [
         ( 'Sweet potato', 0.2 )
