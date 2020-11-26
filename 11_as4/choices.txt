@@ -1,0 +1,60 @@
+One
+Two
+Six
+Five
+Four
+Seven
+Six
+Five
+Brass
+String
+Percussion
+Woodwind
+Brass
+String
+Percussion
+Woodwind
+At the back
+Behind
+In the middle
+The front
+Length
+Speed
+Volume
+Sound
+Silence
+Speed
+Length
+Loud and quiet
+Repeated pattern
+Repeated bars
+Repeated sign
+Repeated on the TV
+Five
+Three
+Eight
+Seven
+Four
+Five
+Three
+Six
+A major
+C minor
+D major
+G minor
+Dorian
+Lydian
+Locrian
+Aeolian
+C minor
+C major
+E minor
+G major
+Unison
+Tritone
+Major Third
+Idon Exist
+Ionian #5
+Dorian #4
+Lydian #2
+Superlocrian
