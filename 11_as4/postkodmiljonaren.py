@@ -63,7 +63,7 @@ def get_answer():
     while True:
         try:
             answer = input('==> ')
-            if answer == 'q' or int(answer) in range(1, 5):
+            if answer in ('q', '1', '2', '3', '4'):
                 return answer
 
             print('Ogiltigt svar, försök igen')
