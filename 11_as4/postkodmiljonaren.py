@@ -90,30 +90,27 @@ def main():
     # Print instructions and wait for the player to start the game
     input(INSTRUCTIONS)
 
-    for q in range(15):
-        # Read question from the list
-        current_question = questions[q]
-
+    for index, question in enumerate(questions):
         # Print the question and wait for answer
-        print(f'Question {q + 1} for {current_question.prize}')
-        current_question.print()
+        print(f'Question {index + 1} for {question.prize}')
+        question.print()
         answer = get_answer()
 
         # Exit the game if the player demands, and shaw the prize for the previous question
         if answer == 'q':
-            print(f'Thanks for playing, you get to take {questions[q-1].prize} home.')
+            print(f'Thanks for playing, you get to take {questions[index-1].prize} home.')
             break
 
         # Check if the answer is correct
-        if current_question.validate_answer(answer):
+        if question.validate_answer(answer):
             # If it's the last question
-            if q == 14:
+            if index == 14:
                 print('YOU WON!!!!! YOU\'RE A MILLIONAIRE!!!!!!!!!!')
             else:
                 print('Right answer!\n')
                 # Update the guaranteed prize if at question 5 or 10 (index 4 resp 9)
-                if q % 5 == 4:
-                    guaranteed = current_question.prize
+                if index % 5 == 4:
+                    guaranteed = question.prize
         else:
             # Wrong answer, print out the prize, the correct answer and then exit
             print('Sorry, that is the wrong answer, ', end='')
@@ -123,7 +120,7 @@ def main():
             else:
                 print(f'you get to take {guaranteed} home.')
 
-            print(f'The right answer was {current_question.get_correct()}')
+            print(f'The right answer was {question.get_correct()}')
             break
 
 main()
