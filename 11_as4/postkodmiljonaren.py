@@ -39,13 +39,17 @@ class Question():
         '''Return the correct answer'''
         return self.choices[self.correct_answer - 1]
 
-def load_questions(directory = os.path.dirname(__file__)):
+def load_questions(path = os.path.dirname(__file__)):
     '''Read from different files and construct the questions'''
+    # Add dir separator to path if necessary
+    if not path.endswith(os.sep):
+        path = path + os.sep
+
     # Open files for reading
-    question_file = open(directory + os.sep + 'questions.txt', 'r')
-    choice_file = open(directory + os.sep + 'choices.txt', 'r')
-    answer_file = open(directory + os.sep + 'answers.txt', 'r')
-    prize_file = open(directory + os.sep + 'prize.txt', 'r')
+    question_file = open(path + 'questions.txt', 'r')
+    choice_file = open(path + 'choices.txt', 'r')
+    answer_file = open(path + 'answers.txt', 'r')
+    prize_file = open(path + 'prize.txt', 'r')
 
     questions = []
 
