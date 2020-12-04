@@ -45,29 +45,24 @@ def load_questions(path = os.path.dirname(__file__)):
     if not path.endswith(os.sep):
         path = path + os.sep
 
-    # Open files for reading
-    question_file = open(path + 'questions.txt', 'r')
-    choice_file = open(path + 'choices.txt', 'r')
-    answer_file = open(path + 'answers.txt', 'r')
-    prize_file = open(path + 'prize.txt', 'r')
-
     questions = []
 
-    # Iterate through the files and construct questions
-    for _ in range(15):
-        question = question_file.readline().strip()
-        choices = []
-        for _ in range(4):
-            choices.append(choice_file.readline().strip())
-        answer = int(answer_file.readline().strip())
-        prize = int(prize_file.readline().strip())
+    # Open files for reading
+    with open(path + 'questions.txt', 'r') as question_file, \
+        open(path + 'choices.txt', 'r') as choice_file, \
+        open(path + 'answers.txt', 'r') as answer_file, \
+        open(path + 'prize.txt', 'r') as prize_file:
 
-        questions.append(Question(question, choices, answer, prize))
+        # Iterate through the files and construct questions
+        for _ in range(15):
+            question = question_file.readline().strip()
+            choices = []
+            for _ in range(4):
+                choices.append(choice_file.readline().strip())
+            answer = int(answer_file.readline().strip())
+            prize = int(prize_file.readline().strip())
 
-    question_file.close()
-    choice_file.close()
-    answer_file.close()
-    prize_file.close()
+            questions.append(Question(question, choices, answer, prize))
 
     return questions
 
