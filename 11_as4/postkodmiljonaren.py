@@ -97,7 +97,7 @@ def main():
 
         # Exit the game if the player demands, and shaw the prize for the previous question
         if answer == 'q':
-            print(f'Thanks for playing, you get to take {questions[index-1].prize} home.')
+            print(f'Thanks for playing, you get to take {0 if index == 0 else questions[index-1].prize} home.')
             break
 
         # Check if the answer is correct
