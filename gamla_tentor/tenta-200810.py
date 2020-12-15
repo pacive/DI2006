@@ -1,5 +1,5 @@
 # Uppgift 1 a)
-'''
+
 pengar = int(input('Ange hur mycket pengar: '))
 rest = pengar
 antal_hundralappar = rest // 100
@@ -13,9 +13,9 @@ print(pengar, 'kronor motsvarar', antal_hundralappar,
     'hundralappar,', antal_femtiolappar,
     'femtiolappar,', antal_tjugolappar,
     'tjugolappar och', antal_enkronor, 'enkronor')
-'''
+
 # Uppgift 1 b)
-'''
+# Med dessa kombinationer av operatorer är uttrycket True
 ((4 > 2) or (1.0 == 1.0))
 ((4 > 2) or (1.0 < 1.0))
 ((4 > 2) or (1.0 > 1.0))
@@ -43,27 +43,24 @@ print(pengar, 'kronor motsvarar', antal_hundralappar,
 ((4 == 2) or (1.0 == 1.0))
 ((4 == 2) or (1.0 <= 1.0))
 ((4 == 2) or (1.0 >= 1.0))
-'''
+
 
 # Uppgift 2 a)
-'''
 x = int(input('Ange x: '))
 y = sum(range(x**2))
 print(y)
-'''
+
 
 # Uppgift 2 b)
-'''
 tal = int(input('Ange tal: '))
 for x in range(1, tal + 1):
     for y in range(x, tal + 1):
         for z in range(y, tal + 1):
             if x**2 + y**2 == z**2:
                 print(f'( {x} , {y} , {z} )')
-'''
+
 
 # Uppgift 3 a)
-'''
 def foo_bar(string):
     string2 = ''
     ending = ''
@@ -75,14 +72,13 @@ def foo_bar(string):
             string2 += string[i] + string[i]
 
     return string2 + ending
-'''
+
 # Uppgift 3 b)
 # i) Samma som värdet på var
 # ii) Värden som är > 1 eller < -1
 # iii) Första gången bar() anropas med ett negativt tal returneras ett positivt,
 #      därefter kommer loopen i foo() fortsätta med positiva värden
 # iv)
-'''
 def bar(value):
     return value * (value - 1)
 
@@ -96,7 +92,7 @@ def foo(value):
         else:
             value += bar(value)
     return value
-'''
+
 
 # Uppgift 4
 # a) foo() öppnar en fil som specificeras i arg1 och skriver arg2 rader med 1:or, med lika många 1:or som
@@ -112,7 +108,6 @@ def foo(value):
 # b) {'h': 4, 'e': 4, 'j': 4, ' ': 3} två gånger. (ordningen  i den andra kan variera eftersom set inte garanterar ordning)
 
 # Uppgift 6
-'''
 import math
 
 class Ball:
@@ -127,10 +122,8 @@ class Ball:
 
 boll = Ball(1)
 print(boll)
-'''
 
 # Uppgift 7 a)
-'''
 class KeyValue:
     def __init__(self, key, value):
         self.__key = key
@@ -153,9 +146,8 @@ class KeyValue:
 
     def __repr__(self):
         return str(self)
-'''
+
 # Uppgift 7 b)
-'''
 import random
 
 def generate_map(string):
@@ -169,7 +161,6 @@ def generate_map(string):
     return keyvalue_list
 
 print(generate_map('hej hej'))
-'''
 
 # Uppgift 8
 class Deck:
