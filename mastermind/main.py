@@ -80,6 +80,8 @@ class MasterMind:
         if field is None or field['row'] != self.round:
             peg.remove()
         else:
+            if isinstance(self.placed_pegs[field['row']][field['col']], uielements.Peg):
+                self.placed_pegs[field['row']][field['col']].remove()
             self.placed_pegs[field['row']][field['col']] = peg
             peg.move_to(*self.peg_grid.get_field_center(field['row'], field['col']))
 
