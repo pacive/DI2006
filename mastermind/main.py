@@ -21,7 +21,8 @@ class MasterMind:
         self.peg_grid = uielements.Grid(self.canvas, \
             self.BOARD_WIDTH - 250, self.BOARD_HEIGHT - 520, 10, 4, 50, 50)
         self.score_grid = uielements.Grid(self.canvas, 30, self.BOARD_HEIGHT - 520, 10, 1, 50, 50)
-        self.check_button = ttk.Button(self.canvas, text="Check!", command=self.validate_line, state='disabled')
+        self.check_button = ttk.Button(self.canvas, text="Check!", \
+            command=self.validate_line, state='disabled')
 
         # Create game state variables
         self.base_pegs = {}
@@ -134,11 +135,11 @@ class MasterMind:
     def show_score(self, score):
         '''Place black or white pegs to indicate retult'''
         center_x, center_y = self.score_grid.get_field_center(self.round, 0)
-        for i, s in enumerate(score):
+        for i, num in enumerate(score):
             x = center_x - (-1)**i * 10
             y = center_y - (-1)**(i//2) * 10
             color = uielements.COLORS['WHITE']
-            if s == 2:
+            if num == 2:
                 color = uielements.COLORS['BLACK']
             self.hint_pegs.append(uielements.draw_circle(self.canvas, x, y, 5, fill=color))
 
