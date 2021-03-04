@@ -80,7 +80,6 @@ class Grid():
 
         return {'row': row, 'col': col}
 
-
 def draw_circle(canvas, xpos, ypos, radius, **kwargs):
     '''Draw a circle centered at (xpos, ypos) with specified radius'''
     x1 = xpos - radius
